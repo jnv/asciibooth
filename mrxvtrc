@@ -1,0 +1,18 @@
+Mrxvt.smoothResize: true
+Mrxvt.fullscreen: true
+Mrxvt.background: black
+Mrxvt.foreground: white
+Mrxvt.cursorColor: black
+Mrxvt.cursorBlink: false
+Mrxvt.scrollBar: false
+Mrxvt.xft: false
+Mrxvt.autohideTabbar: true
+Mrxvt.hideButtons: true
+Mrxvt.hideTabbar: true
+Mrxvt.showMenu: false
+! See /usr/share/fonts/X11/misc/fonts.alias
+Mrxvt.font: terminus-18
+Mrxvt.xftAntialias: false
+Mrxvt.boldFont:
+!Mrxvt.font: terminus-14
+!Mrxvt.boldFont: terminus-bold-14
