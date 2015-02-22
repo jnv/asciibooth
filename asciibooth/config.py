@@ -1,37 +1,50 @@
 # encoding: UTF-8
 from os import path, environ
 
+# Project's root directory for access to images dir and fonts
 BASE_PATH=path.realpath(path.join(path.dirname(__file__), '..'))
-CAPTURE_FORMAT = 'rgb'
-DECODE_MODE = 'RGB'
-RENDER_CONTRAST = 56
-RENDER_CHARS = (80, 40)
+
+
+## Input options
+# Whether to capture mouse/keyboard – no other application will receive input
 INPUT_CAPTURE_MOUSE=True
 INPUT_CAPTURE_KEYBOARD=True
-INPUT_READCH=True # Read characters from TTY; useful for interaction through SSH
-# Throttle mouse clicks
-INPUT_THROTTLE=1000
-# based on 7x14 font:ratio is 1x2
-# capture larger photo and resize it in GPU
-# CAPTURE_RESOLUTION = (RENDER_CHARS[0]*5, RENDER_CHARS[1]*10)
-CAPTURE_RESOLUTION = (1600, 1400)
-CAPTURE_RESIZE = tuple(i * 2 for i in RENDER_CHARS)
-# CAPTURE_RESIZE = (800, 800)
-# CAPTURE_RESIZE = (RENDER_CHARS[0], RENDER_CHARS[1]*2)
+# Read characters from TTY; useful for interaction through SSH
+# If you run application directly on Pi and set INPUT_CAPTURE_KEYBOARD, set this one to False
+INPUT_READCH=True
+# FIXME: Unused
+# INPUT_THROTTLE=1000
 
-# RASTER_FONT = path.join(BASE_PATH, 'fonts', '6x12.pil')
+
+## ASCII conversion
+# Contrast for AAlib conversion
+RENDER_CONTRAST = 56
+# Number of columns and lines for ASCII output
+RENDER_CHARS = (80, 40)
+
+## Camera capture
+# based on 7x14 font:ratio is 1x2
+# Photo resolution
+CAPTURE_RESOLUTION = (1600, 1400)
+#CAPTURE_RESOLUTION = (RENDER_CHARS[0]*5, RENDER_CHARS[1]*10)
+# Target photo size for conversion by AAlib; this is done in GPU
+CAPTURE_RESIZE = tuple(i * 2 for i in RENDER_CHARS)
+#CAPTURE_RESIZE = (RENDER_CHARS[0], RENDER_CHARS[1]*2)
+
+## Raster image rendering
+# Font to be used in the resulting picture; must be a converted raster font in `pil` format for Pillow
+#RASTER_FONT = path.join(BASE_PATH, 'fonts', '6x12.pil')
 RASTER_FONT = path.join(BASE_PATH, 'fonts', '7x13.pil')
 
+# Target directory for rasterized images
 RASTER_OUTPUT = path.join(BASE_PATH, 'images')
 RASTER_FORMAT = 'png'
+# Left part of the image footer
 RASTER_FOOTER = "@NMIselfie // New Media Inspiration 2015"
 
-TWITTER_AUTH = {
-    'token': environ['TWITTER_TOKEN'],
-    'token_secret': environ['TWITTER_TOKEN_SECRET'],
-    'consumer_key': environ['TWITTER_CONSUMER_KEY'],
-    'consumer_secret': environ['TWITTER_CONSUMER_SECRET']
-}
+## Printing
+# These options will be passed to `lpr` command as -o
+# use value None if the option has no parameters
 PRINTER_OPTIONS = {
     'scaling': 50,
     'position': 'center',
@@ -39,11 +52,26 @@ PRINTER_OPTIONS = {
     'orientation-requested': 3
 }
 
-TWEET_FIXED = "#NMI15 #SNMselfie"
+## Twitter credentials; by default, env variables are used
+TWITTER_AUTH = {
+    'token': environ['TWITTER_TOKEN'],
+    'token_secret': environ['TWITTER_TOKEN_SECRET'],
+    'consumer_key': environ['TWITTER_CONSUMER_KEY'],
+    'consumer_secret': environ['TWITTER_CONSUMER_SECRET']
+}
+
+## Tweet message control
+# what is the chance that random message will be added to the tweet, after the last tweet contained a message?
+TWEET_CHANCE_INITIAL = 0
+# increase of random message being added with every tweet
+TWEET_CHANCE_INCREMENT = 0.25
+# Fixed part of the message; usually a hashtag
+TWEET_FIXED = "#asciibooth"
+# Pool of messages to be used in a tweet
+# must be an array (notice splitlines at the end of the string)
 TWEET_MESSAGES = """\
 Smile, you are in the Cloud
 You have been digitized!
-Human character detected
 NSA is proud of you…
 Better apply some filters!
 No to sem neviděl.
@@ -51,7 +79,6 @@ Better than the real life
 Almost real life resolution
 Say A Say S say C and double I
 Red eyes correction applied.
-Check out this new filter on Hipstagram.
 ASCII in my soul…
 +10 SWAG added
 I have found your character.
@@ -61,36 +88,4 @@ New Media? Not for me…
 Encoded belle
 We heard you like letters…
 Whoa.
-This is not the photo you are looking for.
-I still prefer EBCDIC though.
-Stop touching yourself.
-Consciousness upload in progress…
-Black and white
-You are just a bunch of symbols to me.
-I don't like your character.
-The character… that I have!
-Reply, Star and Retweet!
-That's how @Raspberry_Pi sees you.
-Instagram? So old school…  @NMIselfie is trendy now!
-Look, there's something on your face!
-Sort this one out @pixelsorter.
-Check this out, @a_quilt_bot!
-I think @JPGglitchbot can improve this one.
-I think @badpng can improve this one.
-Hey @Lowpolybot, check this one out.
-Do I see blurry or is it from @imgblur?
-.@badpng will help you with that.
-And now for @imgshredder!
-But will it blend? @imgblender
-Let's see what @plaidbot can make out of this one.
-Needs more cowbell, @ClipArtBot.
-.@pixelsorter Likes This.
-Let's see how you will look in the evening, right @imgblur?
-We can improve it thoug. @ClipArtBot?
-This resolution is too damn high! Fix it @Lowpolybot!
-#ascii #aalib #raspberryPi
-#nofilter #retro #lowres #asciiart
-<SwagOutOfRangeError>
-<IndexError: ASCII characters depleted.>
-<IOError: lp on fire>
 """.splitlines()

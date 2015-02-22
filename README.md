@@ -102,7 +102,7 @@ The following variabless control the chance of using the text:
 * `TWEET_CHANCE_INITIAL` – what is the chance that random message will be added to the tweet, after the last tweet contained a message?
   * `0` by default: there is 0% chance that message will contain a random message
 * `TWEET_CHANCE_INCREMENT` – increase of random message being added with every tweet
-  * `0.25` by default: chance of adding a message raises by 25% with every tweet
+  * `0.25` by default: chance of adding a message raises by 25% with every tweet (i.e. message will be sent at least every 4th tweet)
 
 ## Development Notes
 
