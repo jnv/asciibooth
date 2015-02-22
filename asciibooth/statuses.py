@@ -22,7 +22,7 @@ def sampler(source):
             stack = reshuffle()
             continue
 
-def incremental_chance(increment=0.01, start=0.5):
+def incremental_chance(start=0.5, increment=0.01):
     current_chance = start
 
     while True:
@@ -37,7 +37,7 @@ def incremental_chance(increment=0.01, start=0.5):
 
 def status_generator():
     random_status = sampler(config.TWEET_MESSAGES)
-    show_status = incremental_chance(start=0, increment=0.25)
+    show_status = incremental_chance(start=config.TWEET_CHANCE_INITIAL, increment=config.TWEET_CHANCE_INCREMENT)
 
     fixed = config.TWEET_FIXED
 
