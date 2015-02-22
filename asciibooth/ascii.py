@@ -1,6 +1,5 @@
 import aalib
 from PIL import Image
-from . import config
 
 # def prepare_image(stream, vsize):
 #     print(vsize)
@@ -24,7 +23,7 @@ class Convertor:
         self.contrast = contrast
 
     def prepare_image(self, stream):
-        return Image.frombytes(data=stream.getvalue(), mode=config.DECODE_MODE, size=self.stream_size).convert('L')
+        return Image.frombytes(data=stream.getvalue(), mode='RGB', size=self.stream_size).convert('L')
 
     def convert(self, stream):
         screen = self.screen
