@@ -6,8 +6,9 @@ Raspberry Pi photo booth which converts a photo to text characters, prints out t
 
 * [Raspberry Pi](http://www.raspberrypi.org/) (Tested on 1st gen B and B+)
 * [Raspberry Pi Camera](http://www.raspberrypi.org/products/camera-module/)
+* [Raspbian](http://www.raspbian.org/) with a graphical environment (X server) enabled (Tested with [official version](http://www.raspberrypi.org/downloads/) on Wheezy)
 * (Optional) Printer (anything supported by CUPS on Linux)
-* [Raspbian](http://www.raspbian.org/) (Tested with [official version](http://www.raspberrypi.org/downloads/)) with a graphical environment (X server) enabled (Tested with wheezy)
+* Internet connection for sending images to Twitter
 
 ## Setup
 
