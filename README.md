@@ -19,6 +19,20 @@ Once it is cloned and extracted, run `install.sh` script in a terminal. This wil
 * install Python 3, PIP, build dependencies and a few packages available via repository,
 * install remaining packages via Pip from `requirements.txt`
 
+### Printing
+
+Just [setup any USB printer](http://www.howtogeek.com/169679/how-to-add-a-printer-to-your-raspberry-pi-or-other-linux-computer/) for Pi and set is as a default.
+
+To verify the configuration, print a test page with:
+
+```
+lpr /usr/share/cups/data/testprint
+```
+
+### Tweeting
+
+[See the configuration section](#twitter-credentials) for setting up Twitter credentials.
+
 ## Executing
 
 You can run the application as a Python module. `cd` into the directory where you have cloned or extracted the repository and run:
