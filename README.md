@@ -132,7 +132,7 @@ The script assumes these applications are available on your system:
 ## Projects Used
 
 * [AA-lib](http://aa-project.sourceforge.net/), _the_ image to ASCII conversion library started by Jan Hubicka in 1997 (!); see also the [BB demo](https://www.youtube.com/watch?v=FLlDt_4EGX4).
-  * [python-aalib](http://jwilk.net/software/python-aalib) by Jan Wilk
+  * [python-aalib](http://jwilk.net/software/python-aalib) by Jakub Wilk
 * [RxPY](https://github.com/ReactiveX/RxPY) from the [ReactiveX](http://reactivex.io/) project
 * [picamera](https://picamera.readthedocs.org/) for camera manipulation (the major reason why this thing is in Python)
 * [PyUserInput](https://github.com/SavinaRoja/PyUserInput) for grabbing the input from the X server
