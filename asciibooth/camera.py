@@ -10,7 +10,7 @@ class Camera:
 
     def capture(self):
         stream = io.BytesIO()
-        self.camera.capture(stream, 'RGB', resize=config.CAPTURE_RESIZE)
+        self.camera.capture(stream, 'rgb', resize=config.CAPTURE_RESIZE)
         stream.seek(0)
         return stream
 
