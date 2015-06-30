@@ -11,7 +11,7 @@ Mrxvt.hideButtons: true
 Mrxvt.hideTabbar: true
 Mrxvt.showMenu: false
 ! See /usr/share/fonts/X11/misc/fonts.alias
-Mrxvt.font: terminus-18
+Mrxvt.font: terminus-14
 Mrxvt.xftAntialias: false
 Mrxvt.boldFont:
 !Mrxvt.font: terminus-14
