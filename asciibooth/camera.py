@@ -6,7 +6,6 @@ from . import config
 class Camera:
     def __init__(self):
         self.camera = picamera.PiCamera(resolution=config.CAPTURE_RESOLUTION)
-        self.camera.hflip = True
         self.preview_alpha = 200
 
     def capture(self):
@@ -17,13 +16,12 @@ class Camera:
 
     def toggle_preview(self):
         if self.camera.preview is None:
-            self.camera.start_preview(hflip = True)
-            self.camera.preview.alpha = self.preview_alpha
+            self.start_preview()
         else:
-            self.camera.stop_preview()
+            self.stop_preview()
 
     def start_preview(self, alpha=255):
-        self.camera.start_preview()
+        self.camera.start_preview(hflip = True)
         self.camera.preview.alpha = alpha
 
     def stop_preview(self):
