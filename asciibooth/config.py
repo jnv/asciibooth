@@ -54,10 +54,10 @@ PRINTER_OPTIONS = {
 
 ## Twitter credentials; by default, env variables are used
 TWITTER_AUTH = {
-    'token': environ['TWITTER_TOKEN'],
-    'token_secret': environ['TWITTER_TOKEN_SECRET'],
-    'consumer_key': environ['TWITTER_CONSUMER_KEY'],
-    'consumer_secret': environ['TWITTER_CONSUMER_SECRET']
+    'token': environ.get('TWITTER_TOKEN'),
+    'token_secret': environ.get('TWITTER_TOKEN_SECRET'),
+    'consumer_key': environ.get('TWITTER_CONSUMER_KEY'),
+    'consumer_secret': environ.get('TWITTER_CONSUMER_SECRET')
 }
 
 ## Tweet message control
