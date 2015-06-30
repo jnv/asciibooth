@@ -63,7 +63,7 @@ def output_image(e):
             output.tweet(image, text=next(STATUS_GEN))
     except Exception as e:
         print(e)
-        raise e
+        # raise e
     STATE.idle()
 
 def quit():
