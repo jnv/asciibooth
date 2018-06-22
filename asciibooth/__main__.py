@@ -55,12 +55,17 @@ def output_image(e):
     image = raster.save_image(image).getvalue()
     try:
         output.save_image(image)
-
         if share:
-            screen.status('Printing...', newline=False)
-            output.printjob(image)
-            screen.status('Sending to Twitter...')
-            output.tweet(image, text=next(STATUS_GEN))
+            try:
+                screen.status('Printing...', newline=False)
+                output.printjob(image)
+            except Exception as e:
+                print(e)
+            try:
+                screen.status('Sending to Twitter...')
+                output.tweet(image, text=next(STATUS_GEN))
+            except Exception as e:
+                print(e)
     except Exception as e:
         print(e)
         # raise e
