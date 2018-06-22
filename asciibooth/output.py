@@ -39,6 +39,6 @@ def tweet_text():
 def tweet(image, text=''):
     t_auth = twitter.OAuth(**config.TWITTER_AUTH)
     t = twitter.Twitter(auth=t_auth)
-    t_upload = Twitter(domain='upload.twitter.com', auth=t_auth)
+    t_upload = twitter.Twitter(domain='upload.twitter.com', auth=t_auth)
     img_id = t_upload.media.upload(media=image)["media_id_string"]
     t.statuses.update(status=text, media_ids=img_id)
