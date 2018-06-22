@@ -4,7 +4,7 @@ picamera
 Pillow==2.7.0
 python-aalib==0.3
 python3-xlib==0.15
--e git+https://github.com/jnv/PyUserInput.git@81da6dfb9c056f40623c085dda86c6aae80857d9#egg=PyUserInput-master
+PyUserInput==0.1.11
 requests==2.5.1
 Rx==1.0.0
 twitter==1.16.0
