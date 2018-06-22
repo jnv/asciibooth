@@ -14,4 +14,4 @@ sudo apt-get -y install libtiff5-dev libjpeg8-dev zlib1g-dev \
     libfreetype6-dev liblcms2-dev libwebp-dev python3-tk
 
 # Pip packages
-pip-3.2 install -r requirements.txt --user
+pip3 install -r requirements.txt --user
